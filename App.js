@@ -2,6 +2,8 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 import { ClerkProvider,SignedIn,SignedOut } from '@clerk/clerk-expo';
 import Login from './App/Screens/LoginScreen/Login';
+import { NavigationContainer } from '@react-navigation/native';
+import TabNavigation from './App/Navigations/TabNavigation';
 const tokenCache = {
   async getToken(key) {
     try {
@@ -29,6 +31,8 @@ export default function App() {
      
       {/* sign in compoenent */}
       <SignedIn>
+
+        <NavigationContainer><TabNavigation/></NavigationContainer>
           <Text>You are Signed in with abhinav</Text>
         </SignedIn>
         {/* Signout */}
