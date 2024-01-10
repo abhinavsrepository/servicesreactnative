@@ -4,7 +4,7 @@ import { useOAuth } from "@clerk/clerk-expo";
 import Colors from "../../Utils/Colors";
 import * as WebBrowser from "expo-web-browser";
 import { useWarmUpBrowser } from "../../hooks/warmUpBrowser";
-import * as SecureStore from "expo-secure-store";
+;
 WebBrowser.maybeCompleteAuthSession();
 export default function Login() {
   useWarmUpBrowser();
