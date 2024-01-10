@@ -73,12 +73,14 @@ const styles = StyleSheet.create({
   },
   subContainer: {
     width: "100%",
-    backgroundColor: Colors.PRIMARY,
+    backgroundColor: Colors.LIGHTBLACK,
     height: "70%",
     marginTop: -20,
     borderTopLeftRadius: 30,
     borderTopRightRadius: 30,
+    borderWidth: 4,
     padding: 20,
+    borderColor: Colors.YELLOW,
   },
   button: {
     padding: 10,
