@@ -4,6 +4,7 @@ import { useOAuth } from "@clerk/clerk-expo";
 import Colors from "../../Utils/Colors";
 import * as WebBrowser from "expo-web-browser";
 import { useWarmUpBrowser } from "../../hooks/warmUpBrowser";
+import * as SecureStore from "expo-secure-store";
 WebBrowser.maybeCompleteAuthSession();
 export default function Login() {
   useWarmUpBrowser();
@@ -67,7 +68,7 @@ const styles = StyleSheet.create({
     height: 420,
     marginTop: 70,
     borderWidth: 4,
-    borderColor: Colors.WHITE,
+    borderColor: Colors.YELLOW,
     borderRadius: 12,
   },
   subContainer: {
