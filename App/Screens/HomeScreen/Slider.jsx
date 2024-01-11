@@ -3,7 +3,7 @@ import React from 'react'
 import GlobalApi from '../../Utils/GlobalApi'
 
 export default function Slider() {
-    const[slider,setSlider]=useState()
+    const[slider,setSlider]=useState([])
 
     useEffect(()=>{
         getSlider();
@@ -18,7 +18,13 @@ export default function Slider() {
     }
   return (
     <View>
-      <Text>Slider</Text>
+      <Text style={styles.heading}>Offers for you</Text>
     </View>
   )
 }
+const styles =StyleSheet.create({
+    heading:{
+        fontSize:20,
+        fontFamily:""
+    }
+})

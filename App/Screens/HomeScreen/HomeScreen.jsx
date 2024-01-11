@@ -8,6 +8,9 @@ export default function Home() {
   return (
     <View>
       <Header/>
+      <View style={{padding:20}}>
+        <Slider/>
+      </View>
      <Slider/>
     </View>
   )
