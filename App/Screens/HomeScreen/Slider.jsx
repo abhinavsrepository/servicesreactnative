@@ -19,7 +19,9 @@ export default function Slider() {
   return (
     <View>
       <Text style={styles.heading}>Offers for you</Text>
-      <FlatList/>
+      <FlatList
+      data={slider}
+      />
     </View>
   )
 }
