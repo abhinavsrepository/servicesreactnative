@@ -11,7 +11,7 @@ export default function Home() {
       <View style={{padding:20}}>
         <Slider/>
       </View>
-     <Slider/>
+     
     </View>
   )
 }
