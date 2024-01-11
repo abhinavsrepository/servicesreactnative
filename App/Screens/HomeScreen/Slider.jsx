@@ -1,4 +1,4 @@
-import { View, Text } from 'react-native'
+import { View, Text, FlatList ,StyleSheet} from 'react-native'
 import React from 'react'
 import GlobalApi from '../../Utils/GlobalApi'
 
@@ -19,12 +19,14 @@ export default function Slider() {
   return (
     <View>
       <Text style={styles.heading}>Offers for you</Text>
+      <FlatList/>
     </View>
   )
 }
 const styles =StyleSheet.create({
     heading:{
         fontSize:20,
-        fontFamily:""
+        fontFamily:"outfit-medium",
+        marginBottom:10,
     }
 })
