@@ -2,6 +2,7 @@ import { View, Text,StyleSheet,Image, TextInput } from "react-native";
 import React from "react";
 import { useUser } from "@clerk/clerk-expo";
 import Colors from "../../Utils/Colors";
+
 import { FontAwesome } from '@expo/vector-icons';
 export default function Header() {
   const { user, isloading } = useUser();
@@ -13,8 +14,8 @@ export default function Header() {
         <View style={styles.profileContainer}>
           <Image source={{ uri: user?.imageUrl }} style={styles.userImage} />
           <View>
-            <Text style={{color:Colors.WHITE,fontSize:15}}>Welcome,</Text>
-            <Text style={{color:Colors.WHITE,fontSize:20}}>{user?.fullName}</Text>
+            <Text style={{color:Colors.WHITE,fontSize:15,fontFamily:'outfit-medium'}}>Welcome,</Text>
+            <Text style={{color:Colors.WHITE,fontSize:20,fontFamily:'outfit'}}>{user?.fullName}</Text>
           </View>
         </View>
         <FontAwesome name="bookmark-o" size={27} color="white"/>
@@ -58,7 +59,7 @@ const styles = StyleSheet.create({
     paddingHorizontal:16,
     backgroundColor:Colors.WHITE,
     borderRadius:8,
-    width:'85%',fontSize:16
+    width:'85%',fontSize:16,fontFamily:'outfit'
 
 
   },
