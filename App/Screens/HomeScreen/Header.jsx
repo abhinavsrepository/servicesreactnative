@@ -36,10 +36,9 @@ const styles = StyleSheet.create({
   container: {
     padding: 20,
     paddingTop: 60,
-   
     backgroundColor:Colors.PRIMARY,
-    borderBotttomLeftRadius:25,
-    borderBottomRightRadius:25,
+    borderBotttomLeftRadius:-25,
+    borderBottomRightRadius:30,
   },
   profileMainContainer:{
     display:'flex',
@@ -49,6 +48,7 @@ const styles = StyleSheet.create({
   },
   profileContainer:{
     display:'flex',
+    
     alignItem:'center',
     flexDirection:'row',
     gap:13
