@@ -24,7 +24,7 @@ export default function Categories() {
       data={categories}
       numColumns={4}
       renderItem={({item,index})=>(
-        <View>
+        <View style={styles.Container}>
             <View style ={styles.iconContainer}>
                 <Image source={{uri:item?.icon?.url}}
                 style={{width:30,height:30}}
@@ -41,6 +41,11 @@ const styles =StyleSheet.create({
         backgroundColor:Colors.LIGHT_GRAY,
         padding:17,
         borderRadius:99
+
+    },
+    Container:{
+        flex:1,
+        alignItems:'center'
 
     }
 })
