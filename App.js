@@ -5,22 +5,22 @@ import Login from './App/Screens/LoginScreen/Login';
 import { NavigationContainer } from '@react-navigation/native';
 import TabNavigation from './App/Navigations/TabNavigation';
 import { useFonts } from 'expo-font';
-// const tokenCache = {
-//   async getToken(key) {
-//     try {
-//       return SecureStore.getItemAsync(key);
-//     } catch (err) {
-//       return null;
-//     }
-//   },
-//   async saveToken(key , value) {
-//     try {
-//       return SecureStore.setItemAsync(key, value);
-//     } catch (err) {
-//       return;
-//     }
-//   },
-// };
+const tokenCache = {
+  async getToken(key) {
+    try {
+      return SecureStore.getItemAsync(key);
+    } catch (err) {
+      return null;
+    }
+  },
+  async saveToken(key , value) {
+    try {
+      return SecureStore.setItemAsync(key, value);
+    } catch (err) {
+      return;
+    }
+  },
+};
 export default function App() {
   const [fontsLoaded, fontError] = useFonts({
     'outfit': require('./assets/fonts/Outfit-Regular.ttf'),
@@ -32,7 +32,7 @@ export default function App() {
     
 
     <ClerkProvider 
-    // tokenCache={tokenCache}
+    tokenCache={tokenCache}
     publishableKey='pk_test_Ym9zcy1mZXJyZXQtNjYuY2xlcmsuYWNjb3VudHMuZGV2JA'>
     <View style={styles.container}>
      
