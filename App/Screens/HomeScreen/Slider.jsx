@@ -5,7 +5,7 @@ import React, { useState,useEffect } from 'react';
 import GlobalApi from '../../Utils/GlobalApi'
 
 export default function Slider() {
-    const[slider,setSlider]=useState([])
+    const[slider,setSlider]=useState([]);
 
     useEffect(()=>{
         getSliders();
@@ -13,24 +13,26 @@ export default function Slider() {
     },[])
     const getSliders=()=>{
         GlobalApi.getSlider().then(resp=>{
-            console.log("resp",resp.sliders)
+            console.log("resp",resp.sliders);
             setSlider(resp?.sliders)
         })
 
     }
   return (
     <View>
-      <Text style={styles.heading}>Offers for you</Text>
+      <Text style={styles.heading}>Offers For You</Text>
       <FlatList
       data={slider}
       horizontal={true}
-      renderItem={({item,index})=>{
-        <View>
-            {/* <Image source={{uri:item?.image?.url}}
-            style={styles.sliderImage}/> */}
-            <Text>{item.name}</Text>
+      showsHorizontalScrollIndicator={false}
+      renderItem={({item,index})=>(
+        <View style={{marginRight:20}}>
+            <Image source={{uri:item?.image?.url}}
+            style={styles.sliderImage}/>
+            
+            
             </View>
-      }}
+  )}
       />
     </View>
   )
