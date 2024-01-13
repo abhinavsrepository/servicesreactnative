@@ -42,7 +42,7 @@ export default function Login() {
         <Text
           style={{
             fontSize: 17,
-            color: Colors.BLACK,
+            color: Colors.WHITE,
             textAlign: "center",
             marginTop: 20,
           }}
@@ -73,7 +73,7 @@ const styles = StyleSheet.create({
   },
   subContainer: {
     width: "100%",
-    backgroundColor: Colors.LIGHTBLACK,
+    backgroundColor: Colors.PRIMARY,
     height: "70%",
     marginTop: -20,
     borderTopLeftRadius: 30,
