@@ -15,9 +15,9 @@ export default function BusinesListItemSmall({business}) {
         <Text>
             {business?.contactPerson}
         </Text>
-        <Text>
+        {/* <Text>
             {business?.category.name}
-        </Text>
+        </Text> */}
       </View>
     </View>
   )
