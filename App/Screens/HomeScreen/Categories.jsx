@@ -23,13 +23,14 @@ export default function Categories() {
       <FlatList
       data={categories}
       numColumns={4}
-      renderItem={({item,index})=>(
+      renderItem={({item,index})=>index<=3&&(
         <View style={styles.Container}>
             <View style ={styles.iconContainer}>
                 <Image source={{uri:item?.icon?.url}}
                 style={{width:30,height:30}}
                 />
             </View>
+            <Text style={{fontFamily:'outfit-medium',marginTop:5}}>{item?.name}</Text>
         </View>
       )}
       />
