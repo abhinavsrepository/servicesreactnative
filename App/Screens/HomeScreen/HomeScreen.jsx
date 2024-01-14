@@ -6,11 +6,14 @@ import Categories from './Categories'
 import BusinessList from './BusinessList'
 
 
+
 export default function Home() {
   return (
     <View>
+     
       <Header/>
       <View style={{padding:20}}>
+      
         <Slider/>
         <Categories/>
         <BusinessList/>

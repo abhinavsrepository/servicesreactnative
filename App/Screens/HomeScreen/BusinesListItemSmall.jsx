@@ -8,15 +8,15 @@ export default function BusinesListItemSmall({business}) {
       <Image source={{uri:business?.images[0]?.url}}
       style={styles.image}
       />
-      <View>
-        <Text>
+      <View style={styles.infoContainer}>
+        <Text style={{fontSize:17,fontFamily:'outfit-medium'}}>
             {business?.name}
         </Text>
-        <Text>
+        <Text style={{fontSize:13,fontFamily:'outfit',padding:3,color:Colors.PRIMARY,backgroundColor:Colors.LIGHT_BLUE,borderRadius:3,alignSelf:'flex-start',paddingHorizontal:7}}>
             {business?.contactPerson}
         </Text>
         {/* <Text>
-            {business?.category.name}
+            {business?.categor.name}
         </Text> */}
       </View>
     </View>
@@ -29,6 +29,11 @@ const styles = StyleSheet.create({
         borderRadius:10,
 
 
+    },
+    infoContainer:{
+      padding:7,
+      display:'flex',
+      gap:3
     },
     image:{
         width:160,
