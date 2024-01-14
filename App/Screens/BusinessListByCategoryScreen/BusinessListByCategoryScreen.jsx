@@ -10,7 +10,10 @@ export default function BusinessListByCategoryScreen() {
   const navigation =useNavigation();
   useEffect(()=>{
     console.log("Category",param.category)
-  })
+  },[])
+  const getBusinessByCategory=()=>{
+    GlobalApi.getBusinessListByCategory
+  }
   return (
     <View style ={{padding:20,paddingTop:30}}>
       <TouchableOpacity style={{display:'flex',flexDirection:'row',gap:10,alignItems:'center'}} onPress={()=>navigation.goBack()}>
