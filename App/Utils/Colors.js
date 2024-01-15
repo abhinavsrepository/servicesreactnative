@@ -5,8 +5,8 @@ export default{
     YELLOW:'#FFFF00',
     LIGHTBLACK:'#414a4c',
     LIGHT_GRAY:'#5A5A5A',
-    LIGHT_BLUE:'#ADD8E6'
-    
+    LIGHT_BLUE:'#ADD8E6',
+    VERY_LIGHT_BLUE:'#F5FFFF'    
     
    
 

@@ -44,7 +44,7 @@ export default function Categories() {
 }
 const styles =StyleSheet.create({
     iconContainer:{
-        backgroundColor:Colors.LIGHT_GRAY,
+        // backgroundColor:Colors.VERY_LIGHT_BLUE,
         padding:29,
         borderRadius:99,
         

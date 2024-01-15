@@ -10,7 +10,8 @@ export default function BusinessListItem({business}) {
       <View style={styles.subContainer}>
         <Text style={{fontFamily:'outfit-bold',color:Colors.LIGHT_GRAY}}>{business.contactPerson}</Text>
         <Text style={{fontFamily:'outfit-medium',fontSize:18}}>{business.name}</Text>
-        <Text style={{fontFamily:'outfit',color:Colors.LIGHTBLACK,fontSize:16}}><Ionicons name="location-sharp" size={20} color={Colors.PRIMARY}  />{business.address}</Text>
+        <Text style={{fontFamily:'outfit',color:Colors.LIGHTBLACK,fontSize:16}}>
+          <Ionicons name="location-sharp" size={20} color={Colors.PRIMARY}  />{business.address}</Text>
       </View>
     </View>
 

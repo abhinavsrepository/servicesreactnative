@@ -6,6 +6,7 @@ import { Ionicons } from "@expo/vector-icons";
 import { FlatList, TouchableOpacity } from "react-native-gesture-handler";
 import GlobalApi from '../../Utils/GlobalApi'
 import BusinessListItem from "./BusinessListItem";
+import Colors from "../../Utils/Colors";
 export default function BusinessListByCategoryScreen() {
   const param = useRoute().params;
   const navigation = useNavigation();
@@ -36,11 +37,14 @@ export default function BusinessListByCategoryScreen() {
           {param?.category}
         </Text>
       </TouchableOpacity>
-      <FlatList 
+      {businessList?.length>0? <FlatList 
       data={businessList}
+      style={{marginTop:15}}
       renderItem={({item,index})=>(
         <BusinessListItem business={item}/>
-  )}/>
+  )}/>:
+  <Text style={{fontFamily:'outfit-medium',
+  color:Colors.LIGHT_GRAY,fontSize:20,textAlign:'center',marginTop:'20%'}}>No Business Found</Text>}
 
     </View>
   );
