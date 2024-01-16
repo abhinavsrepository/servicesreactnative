@@ -23,8 +23,8 @@ export default function BusinessDetailsScreen() {
 }
 const styles =StyleSheet.create({
   backBtnContainer:{
-    position:'absolute',
+    position:'flex',
     padding:20,
-    zIndex:10
+    zIndex: 2,
   }
 })
