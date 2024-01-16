@@ -16,7 +16,7 @@ export default function BusinessListByCategoryScreen() {
     param&&getBusinessByCategory()
   }, [param]);
   // business list by category
-  const getBusinessByCategory = () => {
+  const getBusinessByCategory =()=>{
     GlobalApi.getBusinessListByCategory(param.category).then(resp=>{
       setBusinessList(resp.businessLists)
     });
@@ -44,7 +44,7 @@ export default function BusinessListByCategoryScreen() {
         <BusinessListItem business={item}/>
   )}/>:
   <Text style={{fontFamily:'outfit-medium',
-  color:Colors.LIGHT_GRAY,fontSize:20,textAlign:'center',marginTop:'20%'}}>No Business Found</Text>}
+  fontSize:20,textAlign:'center',marginTop:'20%'}}>No Business Found</Text>}
 
     </View>
   );
