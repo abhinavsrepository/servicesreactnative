@@ -4,7 +4,7 @@ import {Ionicons} from '@expo/vector-icons'
 import { useNavigation,useRoute } from '@react-navigation/native'
 import { useEffect,useState } from 'react'
 
-import { ScrollView, TouchableOpacity } from 'react-native-gesture-handler'
+import { TouchableOpacity } from 'react-native-gesture-handler'
 import Colors from '../../Utils/Colors'
 import BusinessPhotos from './BusinessPhotos'
 import BusinessAboutMe from './BusinessAboutMe'
@@ -19,8 +19,9 @@ export default function BusinessDetailsScreen() {
 
   },[])
   return business&&(
-    <ScrollView>
     <View>
+    <ScrollView style={{height:'92%'}}>
+   
       <TouchableOpacity style={styles.backBtnContainer}
       onPress={()=>navigation.goBack()}>
       <Ionicons name="arrow-back-outline" size={30} color="black" />
@@ -42,9 +43,31 @@ export default function BusinessDetailsScreen() {
      <BusinessAboutMe business={business}/>
       <View style={{borderWidth:0.7,borderColor:Colors.LIGHT_GRAY,marginTop:20,marginBottom:20}}></View>
       <BusinessPhotos business={business}/>
-    </View>
+  
     </ScrollView>
+    <View style={{display:'flex',
+  flexDirection:'row',margin:8,gap:8}}>
+      <TouchableOpacity style={styles.messageButton}>
+        <Text style={{
+          textAlign:'center',
+          fontFamily:'outfit-medium',
+          color:Colors.PRIMARY,
+          fontSize:18
+        }}>Message</Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity style={styles.bookingBtn}>
+        <Text style={{
+          textAlign:'center',
+          fontFamily:'outfit-medium',
+          color:Colors.WHITE,
+          fontSize:18,
+          
+        }}>Book Now</Text>
+      </TouchableOpacity>
+    </View>
     
+    </View>
     
   )
 
@@ -64,5 +87,27 @@ const styles =StyleSheet.create({
     flexDirection:'row',gap:5,
     alignItems:'center'
 
+  },
+  messageButton:{
+    padding:13,
+    backgroundColor:Colors.WHITE,borderWidth:1,
+    borderColor:Colors.PRIMARY,
+    borderRadius:99,
+    width: 160,
+    height:62,
+    flex:1 
+    
+  },
+  bookingBtn:{
+    padding:13,
+    backgroundColor:Colors.PRIMARY,
+    borderWidth:1,
+    borderColor:Colors.PRIMARY,
+    borderRadius:99,
+    width: 160,
+    height: 50,
+    
+    
   }
+  
 })
