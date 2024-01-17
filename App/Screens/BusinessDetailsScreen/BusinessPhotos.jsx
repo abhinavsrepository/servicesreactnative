@@ -12,7 +12,7 @@ export default function BusinessPhotos({business}) {
      numColumns={2}
      renderItem={({item})=>(
        < Image source={{uri:item.url}}
-       style={{width:'100%',height:120}}/>
+       style={{width:'100%',flex:1,borderRadius:15,margin:5,height:120}}/>
      )}/>
     </View>
   )
