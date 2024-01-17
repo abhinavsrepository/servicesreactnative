@@ -1,10 +1,10 @@
-import { View, Text ,Image ,StyleSheet} from 'react-native'
+import { View, Text ,Image ,StyleSheet,ScrollView} from 'react-native'
 import React from 'react'
 import {Ionicons} from '@expo/vector-icons'
 import { useNavigation,useRoute } from '@react-navigation/native'
 import { useEffect,useState } from 'react'
 
-import { TouchableOpacity } from 'react-native-gesture-handler'
+import { ScrollView, TouchableOpacity } from 'react-native-gesture-handler'
 import Colors from '../../Utils/Colors'
 import BusinessPhotos from './BusinessPhotos'
 import BusinessAboutMe from './BusinessAboutMe'
@@ -19,6 +19,7 @@ export default function BusinessDetailsScreen() {
 
   },[])
   return business&&(
+    <ScrollView>
     <View>
       <TouchableOpacity style={styles.backBtnContainer}
       onPress={()=>navigation.goBack()}>
@@ -42,6 +43,7 @@ export default function BusinessDetailsScreen() {
       <View style={{borderWidth:0.7,borderColor:Colors.LIGHT_GRAY,marginTop:20,marginBottom:20}}></View>
       <BusinessPhotos business={business}/>
     </View>
+    </ScrollView>
     
     
   )
