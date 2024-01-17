@@ -3,16 +3,18 @@ import React from 'react'
 import {Ionicons} from '@expo/vector-icons'
 import { useNavigation,useRoute } from '@react-navigation/native'
 import { useEffect,useState } from 'react'
-import Heading from '../../Components/Heading'
+
 import { TouchableOpacity } from 'react-native-gesture-handler'
 import Colors from '../../Utils/Colors'
+import BusinessPhotos from './BusinessPhotos'
+import BusinessAboutMe from './BusinessAboutMe'
 
 export default function BusinessDetailsScreen() {
   const param =useRoute().params
   
   const[business,setBusiness]=useState(param.business);
   const navigation =useNavigation();
-  const [isReadMore,setIsReadMore]=useState(false)
+  
   useEffect(()=>{
 
   },[])
@@ -36,16 +38,9 @@ export default function BusinessDetailsScreen() {
         <View style={{borderWidth:0.7,borderColor:Colors.LIGHT_GRAY,marginTop:20,marginBottom:20}}></View>
         {/* about me */}
       </View>
-      <View>
-      <Heading style={{padding:15}}text={'About Us'}/>
-      <Text style={{fontFamily:'outfit',lineHeight:25,color:Colors.LIGHT_GRAY,fontSize:16,paddingHorizontal:15}} numberOfLines={isReadMore?20:5}>{business.about}</Text>
-     <TouchableOpacity onPress={()=>setIsReadMore(!isReadMore)}>
-      
-      <Text style={{color:Colors.PRIMARY,fontSize:16,fontFamily:'outfit',backgroundColor:Colors.LIGHT_BLUE,padding:5,borderRadius:5,paddingLeft:15}}>{isReadMore?'Read Less':'Read More'}</Text>
-      </TouchableOpacity>
-      </View>
+     <BusinessAboutMe business={business}/>
       <View style={{borderWidth:0.7,borderColor:Colors.LIGHT_GRAY,marginTop:20,marginBottom:20}}></View>
-      
+      <BusinessPhotos business={business}/>
     </View>
     
     
