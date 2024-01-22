@@ -1,4 +1,4 @@
-import { View, Text, TouchableOpacity,StyleSheet,TextInput} from 'react-native'
+import { View, Text, TouchableOpacity,StyleSheet,TextInput, ScrollView, KeyboardAvoidingView} from 'react-native'
 import React, { useEffect ,useState} from 'react'
 import PageHeading from '../../Components/PageHeading'
 import {Ionicons} from '@expo/vector-icons'
@@ -10,7 +10,8 @@ import Heading from '../../Components/Heading';
 export default function BookingModal({hideModal}) {
   const [timeList,setTimeList] =useState()
   const [selectedTime,setSelectedTime]=useState();
-  const [selectedDate,setSelectedDate]=useState()
+  const [selectedDate,setSelectedDate]=useState();
+  const [note,setNote]=useState();
   useEffect(()=>{
     getTime();
   },[])
@@ -38,7 +39,8 @@ const getTime=()=>{
 
 }
   return (
-    <View style={{padding:20}}>
+    <ScrollView>
+    <KeyboardAvoidingView style={{padding:20}}>
       <TouchableOpacity
         style={{
           display: "flex",
@@ -90,10 +92,16 @@ const getTime=()=>{
       numberOfLine={4}
       multiline={true}
 
-      style={styles.noteTextArea}/>
+      style={styles.noteTextArea}
+      onChange={(text)=>setNote(text)}/>
 
     </View>
-    </View>
+    {/* conformation button */}
+    <TouchableOpacity style={{marginTop:15}}>
+      <Text style={styles.confirmbutton}>Confirm & Book</Text>
+    </TouchableOpacity>
+    </KeyboardAvoidingView>
+    </ScrollView>
   )
 }
 const styles = StyleSheet.create({
@@ -122,11 +130,23 @@ useSelectedTime:{
   color:Colors.PRIMARY
 },
 noteTextArea:{
-borderWidth:1,
+borderWidth:1.5,
 borderRadius:15,
 textAlignVertical:'top',
-padding:20,
-fontSize:16,fontFamily:'outfit'
+padding:22,
+fontSize:16,
+fontFamily:'outfit',
+borderColor:Colors.LIGHTBLACK
+},
+confirmbutton:{
+textAlign:'center',
+fontFamily:'outfit-medium',
+fontSize:17,
+backgroundColor:Colors.PRIMARY,
+color:Colors.WHITE,
+padding:13,
+borderRadius:99,
+elevation:8
 }
 
 })
