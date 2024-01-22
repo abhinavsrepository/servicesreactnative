@@ -7,6 +7,7 @@ import { FlatList, TouchableOpacity } from "react-native-gesture-handler";
 import GlobalApi from '../../Utils/GlobalApi'
 import BusinessListItem from "./BusinessListItem";
 import Colors from "../../Utils/Colors";
+import PageHeading from "../../Components/PageHeading";
 export default function BusinessListByCategoryScreen() {
   const param = useRoute().params;
   const navigation = useNavigation();
@@ -23,20 +24,7 @@ export default function BusinessListByCategoryScreen() {
   };
   return (
     <View style={{ padding: 20, paddingTop: 30 }}>
-      <TouchableOpacity
-        style={{
-          display: "flex",
-          flexDirection: "row",
-          gap: 10,
-          alignItems: "center",
-        }}
-        onPress={() => navigation.goBack()}
-      >
-        <Ionicons name="arrow-back-outline" size={30} color="black" />
-        <Text style={{ fontSize: 25, fontFamily: "outfit-medium" }}>
-          {param?.category}
-        </Text>
-      </TouchableOpacity>
+      <PageHeading title={param.category}/>
       {businessList?.length>0? <FlatList 
       data={businessList}
       style={{marginTop:15}}

@@ -1,18 +1,21 @@
-import { View, Text ,Image ,StyleSheet,ScrollView} from 'react-native'
+import { View, Text ,Image ,StyleSheet,ScrollView, Modal,TouchableOpacity} from 'react-native'
 import React from 'react'
 import {Ionicons} from '@expo/vector-icons'
 import { useNavigation,useRoute } from '@react-navigation/native'
 import { useEffect,useState } from 'react'
 
-import { TouchableOpacity } from 'react-native-gesture-handler'
+
 import Colors from '../../Utils/Colors'
 import BusinessPhotos from './BusinessPhotos'
 import BusinessAboutMe from './BusinessAboutMe'
+import BookingModal from './BookingModal'
 
 export default function BusinessDetailsScreen() {
   const param =useRoute().params
   
+  
   const[business,setBusiness]=useState(param.business);
+  const [showModal,setShowModal]=useState(false)
   const navigation =useNavigation();
   
   useEffect(()=>{
@@ -56,7 +59,8 @@ export default function BusinessDetailsScreen() {
         }}>Message</Text>
       </TouchableOpacity>
 
-      <TouchableOpacity style={styles.bookingBtn}>
+      <TouchableOpacity style={styles.bookingBtn}
+      onPress={()=>setShowModal(true)}>
         <Text style={{
           textAlign:'center',
           fontFamily:'outfit-medium',
@@ -66,7 +70,12 @@ export default function BusinessDetailsScreen() {
         }}>Book Now</Text>
       </TouchableOpacity>
     </View>
-    
+    {/* Booking Screen Modal */}
+    <Modal
+      animationType='slide'
+      visible={showModal}>
+        <BookingModal/>
+    </Modal>
     </View>
     
   )
@@ -93,8 +102,7 @@ const styles =StyleSheet.create({
     backgroundColor:Colors.WHITE,borderWidth:1,
     borderColor:Colors.PRIMARY,
     borderRadius:99,
-    width: 160,
-    height:62,
+   
     flex:1 
     
   },
@@ -104,8 +112,7 @@ const styles =StyleSheet.create({
     borderWidth:1,
     borderColor:Colors.PRIMARY,
     borderRadius:99,
-    width: 160,
-    height: 50,
+    flex:1
     
     
   }
