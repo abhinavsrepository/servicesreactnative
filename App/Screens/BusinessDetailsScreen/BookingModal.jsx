@@ -1,4 +1,4 @@
-import { View, Text, TouchableOpacity,StyleSheet} from 'react-native'
+import { View, Text, TouchableOpacity,StyleSheet,TextInput} from 'react-native'
 import React, { useEffect ,useState} from 'react'
 import PageHeading from '../../Components/PageHeading'
 import {Ionicons} from '@expo/vector-icons'
@@ -9,8 +9,8 @@ import Heading from '../../Components/Heading';
 
 export default function BookingModal({hideModal}) {
   const [timeList,setTimeList] =useState()
-  const [selecteTime,setSelectedTime]=useState()
-
+  const [selectedTime,setSelectedTime]=useState();
+  const [selectedDate,setSelectedDate]=useState()
   useEffect(()=>{
     getTime();
   },[])
@@ -56,7 +56,7 @@ const getTime=()=>{
       {/* Calendar sectioon */}
       <Heading text ={'Select Date '}/>
       <View style={styles.calendarContainer}>
-        <CalendarPicker onDateChange={this.onDateChange}
+        <CalendarPicker onDateChange={setSelectedDate}
         width={340} 
         minDate={Date.now()}
         todayBackgroundColor={Colors.BLACK}
@@ -76,13 +76,23 @@ const getTime=()=>{
 
         renderItem ={({item,index})=>(
           <TouchableOpacity  style={{marginRight:10}}
-          onPress ={()=>setSelectedTime(item.time?
-            styles.selectedTime:unSelectedTime)}>
-            <Text style={[ selectedTime == styles.useSelectedTime]}>{item.time}</Text>
+          onPress ={()=>setSelectedTime(item.time)}>
+        
+            <Text style={[ selectedTime ==item.time? styles.selectedTime:styles.useSelectedTime]}>{item.time}</Text>
           </TouchableOpacity>
         )}/>
       </View>
+      
+      {/* Note Section */}
+      <View style={{paddingTop:20}}>
+      <Heading text={'Any Query Note'}/>
+      <TextInput placeholder='Note'
+      numberOfLine={4}
+      multiline={true}
 
+      style={styles.noteTextArea}/>
+
+    </View>
     </View>
   )
 }
@@ -102,8 +112,6 @@ selectedTime:{
   paddingHorizontal:18,
   backgroundColor:Colors.PRIMARY,
   color:Colors.WHITE
-
-
 },
 useSelectedTime:{
   padding:10,
@@ -112,13 +120,13 @@ useSelectedTime:{
   borderRadius:99,
   paddingHorizontal:18,
   color:Colors.PRIMARY
-
 },
-unSelectedTime:{
-  padding:10,
-  borderWidth:1,
-  borderColor:Colors.PRIMARY,
-  borderRadius:99,
-  paddingHorizontal:18,
-  color:Colors.PRIMARY}
+noteTextArea:{
+borderWidth:1,
+borderRadius:15,
+textAlignVertical:'top',
+padding:20,
+fontSize:16,fontFamily:'outfit'
+}
+
 })
