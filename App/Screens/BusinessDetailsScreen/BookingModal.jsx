@@ -144,7 +144,7 @@ fontFamily:'outfit-medium',
 fontSize:17,
 backgroundColor:Colors.PRIMARY,
 color:Colors.WHITE,
-padding:13,
+padding:14,
 borderRadius:99,
 elevation:8
 }
