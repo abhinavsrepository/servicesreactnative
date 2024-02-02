@@ -6,15 +6,19 @@ import { FlatList } from 'react-native-gesture-handler'
 import CalendarPicker from "react-native-calendar-picker";
 import Colors from '../../Utils/Colors';
 import Heading from '../../Components/Heading';
+import GlobalApi from '../../Utils/GlobalApi'
+import { useUser } from '@clerk/clerk-expo'
 
-export default function BookingModal({hideModal}) {
+export default function BookingModal({businessId,hideModal}) {
   const [timeList,setTimeList] =useState()
   const [selectedTime,setSelectedTime]=useState();
   const [selectedDate,setSelectedDate]=useState();
   const [note,setNote]=useState();
+  const {user}= useUser()
   useEffect(()=>{
     getTime();
   },[])
+
 const getTime=()=>{
   const timeList =[];
   for (let i=9;i<=12;i++)
@@ -37,6 +41,20 @@ const getTime=()=>{
   }
   setTimeList(timeList)
 
+}
+// Create Booking Method
+const createNewBooking=()=>{
+  const data={
+    userName:user?.fullName,
+    userEmail:user?.primaryEmailAddress.emailAddress,
+    time:selectedTime,
+    date:selectedDate,
+    note :note,
+    businessId:buseinessId
+  }
+  GlobalApi.createBooking(data).then(resp=>{
+    console.log("Resp",resp)
+  })
 }
   return (
     <ScrollView>
@@ -97,8 +115,10 @@ const getTime=()=>{
 
     </View>
     {/* conformation button */}
-    <TouchableOpacity style={{marginTop:15}}>
-      <Text style={styles.confirmbutton}>Confirm & Book</Text>
+    <TouchableOpacity style={{marginTop:15}} onPress={()=>createNewBooking()}>
+      <Text style={styles.confirmbutton} >
+        
+        Confirm & Book</Text>
     </TouchableOpacity>
     </KeyboardAvoidingView>
     </ScrollView>
