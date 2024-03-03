@@ -8,7 +8,7 @@ import Colors from '../../Utils/Colors';
 import Heading from '../../Components/Heading';
 import GlobalApi from '../../Utils/GlobalApi'
 import { useUser } from '@clerk/clerk-expo'
-
+import moment from 'moment'
 export default function BookingModal({businessId,hideModal}) {
   const [timeList,setTimeList] =useState()
   const [selectedTime,setSelectedTime]=useState();
@@ -44,16 +44,25 @@ const getTime=()=>{
 }
 // Create Booking Method
 const createNewBooking=()=>{
+  if(!selectedTime||!selectedDate)
+  {
+    ToastAndroid.show('Please select Date and Time' ,ToastAndroid.LONG)
+
+    return;
+  }
+
   const data={
     userName:user?.fullName,
     userEmail:user?.primaryEmailAddress.emailAddress,
     time:selectedTime,
-    date:selectedDate,
-    note :note,
-    businessId:buseinessId
+    date: moment(selectedDate).format('DD-MM-YYYY'),
+    // note :note,
+    businessId:businessId
   }
   GlobalApi.createBooking(data).then(resp=>{
     console.log("Resp",resp)
+      // ToastAndroid.show('Booking created Successfully!' ,ToastAndroid.LONG)
+    hideModal();
   })
 }
   return (

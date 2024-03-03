@@ -86,7 +86,7 @@ const createBooking = async(data)=>{
   mutation createBooking {
     createBooking(
       data: {bookingStatus: Booked,
-         businessList: {connect: {id: "`+data.businessid+`"}},
+         businessList: {connect: {id: "`+data.businessId+`"}},
          date: "`+data.date+`",
           time: "`+data.time+`",
            userEmail: "`+data.userEmail+`", 
@@ -94,7 +94,9 @@ const createBooking = async(data)=>{
     ) {
       id
     }
-    publishManyBookings
+    publishManyBookings(to: PUBLISHED) {
+      count
+    }
   }
   `
   const result=await request(MASTER_URL, mutationQuery);
